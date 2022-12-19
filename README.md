@@ -15,14 +15,14 @@
 
 
 - 原始搜索结果：(不够直观)
-# https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg
+
 ![](https://raw.github.com/yaunsine/getDBLP/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
 
 
 
 - 实现将搜索结果表格化
 
-![](https://github.com/yaunsine/getDBLP/master/Snipaste_2022-12-19_21-06-14.png)
+![](https://raw.github.com/yaunsine/getDBLP/master/Snipaste_2022-12-19_21-06-14.png)
 
 
 
