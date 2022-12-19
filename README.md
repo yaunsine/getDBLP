@@ -22,7 +22,7 @@
 
 - 实现将搜索结果表格化
 
-![](https://github.com/yaunsine/getDBLP/blob/master/Snipaste_2022-12-19_21-06-14.png)
+![](https://github.com/yaunsine/getDBLP/master/Snipaste_2022-12-19_21-06-14.png)
 
 
 
