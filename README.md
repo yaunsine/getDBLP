@@ -16,13 +16,13 @@
 
 - 原始搜索结果：(不够直观)
 
-![](.\微信截图_20221219210844.png)
+![](https://github.com/yaunsine/getDBLP/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
 
 
 
 - 实现将搜索结果表格化
 
-![](.\Snipaste_2022-12-19_21-06-14.png)
+![](https://github.com/yaunsine/getDBLP/blob/master/Snipaste_2022-12-19_21-06-14.png)
 
 
 
