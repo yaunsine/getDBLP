@@ -16,7 +16,7 @@
 
 - 原始搜索结果：(不够直观)
 # https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg
-![](https://raw.github.com/yaunsine/getDBLP/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
+![](https://raw.github.com/yaunsine/getDBLP/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
 
 
 
