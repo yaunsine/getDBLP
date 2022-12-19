@@ -46,5 +46,10 @@ access：是否开发获取
 ee：出版处原文
 
 
+如何运行？
+```python
+python getPaper.py
+```
+
 
 整理的数据可以方便用于数据分析。
