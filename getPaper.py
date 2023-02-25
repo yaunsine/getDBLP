@@ -3,10 +3,16 @@ import json
 import pandas as pd
 from urllib.parse import quote
 import sys
-search_content = "Object detection"         # 输入搜索的内容
+import os
+search_content = "graph recommend"         # 输入搜索的内容
 search_contents = quote(search_content)
 papar_count = 1000      # 输入获取论文的数量
 url = "https://dblp.org/search/publ/api?q="+search_contents+"&h="+str(papar_count)+"&format=json"
+
+# 创建文件夹
+diretory = "paperExcel/"
+if os.path.exists(diretory) is False:
+    os.mkdir(diretory)
 
 proxies = {"http": "222.175.22.197:9091"}       # 运行不了改一下代理IP
 content = requests.get(url, proxies=proxies).text
@@ -67,5 +73,5 @@ del data_dict['@score']
 df = pd.DataFrame(data=data_dict)
 search_content = search_content.capitalize().replace(" ", "")
 df.index = df.index + 1
-df.to_csv(search_content+".csv")
+df.to_csv(diretory + search_content+".csv")
 pass
