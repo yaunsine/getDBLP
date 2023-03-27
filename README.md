@@ -21,13 +21,13 @@
 
 - 原始搜索结果：(不够直观)
 
-![](https://raw.github.com/yaunsine/getDBLP/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
+![](https://raw.github.com/yaunsine/getDBLP/master/imgs/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20221219210844.png)
 
 
 
 - 实现将搜索结果表格化
 
-![](https://raw.github.com/yaunsine/getDBLP/master/Snipaste_2022-12-19_21-06-14.png)
+![](https://raw.github.com/yaunsine/getDBLP/master/imgs/Snipaste_2022-12-19_21-06-14.png)
 
 
 
@@ -52,6 +52,13 @@ ee：出版处原文
 ```python
 python getPaper.py
 ```
+
+### 根据搜索结果生成词云图
+```python
+python cloudword.py
+```
+
+![](https://raw.github.com/yaunsine/getDBLP/master/imgs/cloudword.png)
 
 
 整理的数据可以方便用于数据分析。
