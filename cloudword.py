@@ -9,7 +9,7 @@ data = pd.read_csv('paperExcel\\Graphrecommend.csv')
 s = "".join(data['title'])
 s = s.replace("\n", " ")
 del data
-with open("config\\custom_userdict.txt", "r") as fp:
+with open("config\\custom_userdict.txt", mode="r", encoding="utf-8") as fp:
     lines = fp.readlines()
     for line in lines:
         line = line.replace("\n", "")
@@ -17,7 +17,7 @@ with open("config\\custom_userdict.txt", "r") as fp:
 
 jieba.load_userdict("config\\custom_userdict.txt")
 ls = jieba.lcut(s) # 生成分词列表
-with open("cut_temp.txt", encoding="utf-8", mode="w") as fp:
+with open("temp\\cut_temp.txt", encoding="utf-8", mode="w") as fp:
     fp.writelines(str(ls))
 
 text = ' '.join(ls) # 连接成字符串
@@ -35,4 +35,4 @@ wc = wordcloud.WordCloud(font_path="msyh.ttc",
                          max_words=100,stopwords=s)
 # msyh.ttc电脑本地字体，写可以写成绝对路径
 wc.generate(text) # 加载词云文本
-wc.to_file("cloudword.png") # 保存词云文件
+wc.to_file("imgs\\cloudword.png") # 保存词云文件
