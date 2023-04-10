@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+import os
+
+data = pd.read_csv("paperExcel\\Graphrecommend.csv")
+data = list(data['year'])
+counter = Counter(data)
+
+
+# 绘制条形图
+x_values = list(counter.keys())
+y_values = list(counter.values())
+
+x_values, y_values = zip(*sorted(counter.items()))
+
+plt.bar(x_values, y_values, color='blue')
+print(x_values)
+print(y_values)
+# 绘制折线图
+plt.plot(x_values, y_values, color='red', marker='o', linestyle='--')
+
+# 添加轴标签和标题
+plt.xlabel('Year')
+plt.ylabel('Count')
+plt.title('Frequency and Cumulative Frequency of Data')
+
+# 保存图片到imgs目录下
+if not os.path.exists('imgs'):
+    os.mkdir('imgs')
+plt.savefig('imgs/frequency_plot.png')
+
+plt.show()

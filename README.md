@@ -61,4 +61,9 @@ python cloudword.py
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/cloudword.png)
 
 
+### 生成折线图
+
+![](https://raw.github.com/yaunsine/getDBLP/master/imgs/frequency_plot.png)
+
+
 整理的数据可以方便用于数据分析。
