@@ -1,6 +1,7 @@
 import jieba
 import wordcloud
 import pandas as pd
+import datetime
 # 读取文本
 # with open("lhy_comments.txt",encoding="utf-8") as f:
 #    s = f.read()
@@ -35,4 +36,7 @@ wc = wordcloud.WordCloud(font_path="msyh.ttc",
                          max_words=100,stopwords=s)
 # msyh.ttc电脑本地字体，写可以写成绝对路径
 wc.generate(text) # 加载词云文本
-wc.to_file("imgs\\cloudword.png") # 保存词云文件
+def getLastDate():
+    return
+time_stamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+wc.to_file(f"imgs//cloudword{time_stamp}.png".replace(":", "_")) # 保存词云文件
