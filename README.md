@@ -62,6 +62,9 @@ python cloudword.py
 
 
 ### 生成折线图
+```python
+python showDataGraph.py
+```
 
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/frequency_plot.png)
 

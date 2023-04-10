@@ -3,7 +3,10 @@ import matplotlib.pyplot as plt
 from collections import Counter
 import os
 
-data = pd.read_csv("paperExcel\\Graphrecommend.csv")
+file_name = "paperExcel/Graphrecommend.csv"
+search_content = file_name.split("/")[1].split(".")[0]
+
+data = pd.read_csv(file_name)
 data = list(data['year'])
 counter = Counter(data)
 
@@ -14,16 +17,20 @@ y_values = list(counter.values())
 
 x_values, y_values = zip(*sorted(counter.items()))
 
-plt.bar(x_values, y_values, color='blue')
-print(x_values)
-print(y_values)
+plt.bar(x_values, y_values, color=(0.7, 0.7, 0.7))
+
 # 绘制折线图
 plt.plot(x_values, y_values, color='red', marker='o', linestyle='--')
 
 # 添加轴标签和标题
 plt.xlabel('Year')
 plt.ylabel('Count')
-plt.title('Frequency and Cumulative Frequency of Data')
+plt.title(f'Frequency and Cumulative Frequency of {search_content}')
+plt.xticks(list(range(min(x_values), max(x_values)+1, 1)))
+plt.grid()
+
+for x, y in zip(x_values, y_values):
+    plt.text(x, y, str(y), ha='center', va='bottom', color='red')
 
 # 保存图片到imgs目录下
 if not os.path.exists('imgs'):
