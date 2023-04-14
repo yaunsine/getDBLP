@@ -1,16 +1,37 @@
+"""
+    @author: yaunsine
+    获取dblp数据，转录为csv表格
+"""
 import requests
 import json
 import pandas as pd
 from urllib.parse import quote
-import sys
 import os
-search_content = "graph recommend"         # 输入搜索的内容
-search_contents = quote(search_content)
-papar_count = 1000      # 输入获取论文的数量
-url = "https://dblp.org/search/publ/api?q="+search_contents+"&h="+str(papar_count)+"&format=json"
+import argparse
+import logging
 
-# 创建文件夹
-diretory = "paperExcel/"
+def print_input_arg(args):
+    dict_args = dict(vars(args))
+    for k in dict_args.keys():
+        print(f"{k}: {dict_args[k]}")
+
+logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=logging.DEBUG)
+parser = argparse.ArgumentParser()
+parser.add_argument("--keyword", default="gan", type=str, help="content will be searched in dblp")
+parser.add_argument("--page_count", default=1000, type=int, help="get count per page")
+parser.add_argument("--output_csv_path", default="paperExcel/", type=str, help="csv save path")
+args = parser.parse_args()
+
+print_input_arg(args=args)
+
+search_content = args.keyword        # 输入搜索的内容
+paper_count = args.page_count      # 输入获取论文的数量
+diretory = args.output_csv_path     # 输出csv路径
+
+search_contents = quote(search_content)
+
+url = f"https://dblp.org/search/publ/api?q={search_contents}&h={paper_count}&format=json"
+
 if os.path.exists(diretory) is False:
     os.mkdir(diretory)
 
@@ -22,7 +43,6 @@ if int(content_json['result']['hits']['@total']) <= 0:
     # sys.exit(0)
 article_ls = content_json['result']['hits']['hit']
 
-# if len(content_json['result']['hits']['hit'])
 cols_name = article_ls[0].keys()
 
 data_dict = dict()
@@ -36,10 +56,7 @@ for i, x in enumerate(cols_name):
     if i == 2:
         auth_ls = []
         lss = [[] for _ in range(9)]
-        # lens = len(ls[i][0].keys())
         for j, v1 in enumerate(ls[i]):
-            # if lens != len(v1.keys()):
-            #     continue
             try:
                 lss[0].append(",".join([x['text'] for x in v1['authors']['author']])) if 'authors' in v1 else lss[0].append(None)
                 lss[1].append(v1['title']) if 'title' in v1 else lss[1].append(None)
@@ -53,14 +70,6 @@ for i, x in enumerate(cols_name):
             except Exception as e:
                 print(v1)
                 print(e)
-            # dict_keys(['authors', 'title', 'venue', 'pages', 'year', 'type', 'access', 'key', 'doi', 'ee', 'url'])
-            # for k, v2 in enumerate(v1.keys()):
-            #     # auth = author['authors']['author'][0]['text']
-            #     # auth_ls.append(auth)
-            #     try:
-            #         lss[k].append(v1[v2])
-            #     except:
-            #         print(k)
         din = ['authors', 'title', 'venue', 'type', 'year', 'access', 'key', 'url', 'ee']
         for i, x in enumerate(din):
             data_dict[x] = lss[i]
@@ -73,5 +82,4 @@ del data_dict['@score']
 df = pd.DataFrame(data=data_dict)
 search_content = search_content.capitalize().replace(" ", "")
 df.index = df.index + 1
-df.to_csv(diretory + search_content+".csv")
-pass
+df.to_csv(diretory + search_content + ".csv")

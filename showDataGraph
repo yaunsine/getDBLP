@@ -2,8 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
 import os
+import datetime
 
-file_name = "paperExcel/Graphrecommend.csv"
+file_name = "paperExcel/Gan.csv"
 search_content = file_name.split("/")[1].split(".")[0]
 
 data = pd.read_csv(file_name)
@@ -35,6 +36,8 @@ for x, y in zip(x_values, y_values):
 # 保存图片到imgs目录下
 if not os.path.exists('imgs'):
     os.mkdir('imgs')
-plt.savefig('imgs/frequency_plot.png')
+
+time_stamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S').replace(":", "_")
+plt.savefig(f'imgs/frequency_plot_{search_content}{time_stamp}.png')
 
 plt.show()
