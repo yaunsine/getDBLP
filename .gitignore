@@ -4,3 +4,5 @@ paperExcel/
 
 # idea config
 .idea/
+
+.vscode/
