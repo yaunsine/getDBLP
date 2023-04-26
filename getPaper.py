@@ -19,6 +19,7 @@ logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=loggi
 parser = argparse.ArgumentParser()
 parser.add_argument("--keyword", default="recommend", type=str, help="content will be searched in dblp")
 parser.add_argument("--page_count", default=1000, type=int, help="get count per page")
+parser.add_argument("--year", default=2023, type=int, help="year, None if < 0 else year")
 parser.add_argument("--output_csv_path", default="paperExcel/", type=str, help="csv save path")
 args = parser.parse_args()
 
@@ -27,7 +28,9 @@ print_input_arg(args=args)
 search_content = args.keyword        # 输入搜索的内容
 paper_count = args.page_count      # 输入获取论文的数量
 diretory = args.output_csv_path     # 输出csv路径
+year = '' if args.year < 0 else f' year:{args.year}:'  # 年份
 
+search_content += year
 search_contents = quote(search_content)
 
 url = f"https://dblp.org/search/publ/api?q={search_contents}&h={paper_count}&format=json"
@@ -87,6 +90,6 @@ del data_dict['@id']
 del data_dict['url']
 del data_dict['@score']
 df = pd.DataFrame(data=data_dict)
-search_content = search_content.capitalize().replace(" ", "")
+search_content = search_content.capitalize().replace(" ", "").replace(":", "")
 df.index = df.index + 1
 df.to_csv(diretory + search_content + ".csv")
