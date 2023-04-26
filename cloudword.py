@@ -1,3 +1,7 @@
+"""
+    @author: yaunsine
+    生成词云图
+"""
 import jieba
 import wordcloud
 import pandas as pd
