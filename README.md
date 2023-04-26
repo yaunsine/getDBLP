@@ -2,21 +2,27 @@
 ![version](https://img.shields.io/badge/python-3.7-red.svg)
 
 
-## :green_apple:1 Decribe
+### :green_apple:1 Decribe
 
 表格化dblp搜索结果
 
-## :bookmark:2 Version
+### :bookmark:2 Version
   
 - Version 1.0
 
-为了方便查看 
-# https://dblp.org/
-中的论文搜索信息，将查询后的数据进行了一些处理
+### 介绍
+
+dblp 计算机科学书目提供有关主要计算机科学期刊和会议记录的开放书目信息，dblp 最初于 1993 年在特里尔大学创建
+。为了方便查看 
+[https://dblp.org/]()
+中的论文搜索信息，将查询后的数据进行了一些处理。
+- 将搜索结果表格化
+- 根据搜索结果生成词云图
+- 生成折线图
 
 
 
-## :construction_worker:3 Introduction
+### :construction_worker:3 Introduction
 
 
 - 原始搜索结果：(不够直观)
@@ -30,6 +36,8 @@
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/Snipaste_2022-12-19_21-06-14.png)
 
 
+
+### 字段说明
 
 :wrench:直观显示了所有搜索结果，每个字段代表的含义：
 
