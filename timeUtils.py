@@ -10,3 +10,6 @@ class TimeUtils():
     def get_now_time(self) -> str:
         now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         return now_time
+
+if __name__ == '__main__':
+    pass
