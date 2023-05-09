@@ -20,7 +20,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--keyword", default="recommend", type=str, help="content will be searched in dblp")
 parser.add_argument("--page_count", default=1000, type=int, help="get count per page")
 parser.add_argument("--year", default=-1, type=int, help="year, None if < 0 else year")
-parser.add_argument("--confer", default='sigir', type=str, help="paper from which conference")
+parser.add_argument("--confer", default="all", type=str,
+                    help="paper from which conference, such as all, sigir, www, etc.")
 parser.add_argument("--output_csv_path", default="paperExcel/", type=str, help="csv save path")
 args = parser.parse_args()
 
@@ -30,7 +31,7 @@ search_content = args.keyword        # 输入搜索的内容
 paper_count = args.page_count      # 输入获取论文的数量
 diretory = args.output_csv_path     # 输出csv路径
 year = '' if args.year < 0 else f' year:{args.year}:'  # 年份
-confer = '' if args.confer == '' else f' streamid:conf/{args.confer}:'   # 会议
+confer = '' if args.confer == 'all' else f' streamid:conf/{args.confer}:'   # 会议
 
 search_content += year
 search_content += confer
