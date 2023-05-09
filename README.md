@@ -1,16 +1,14 @@
-# getDBLP
-![version](https://img.shields.io/badge/python-3.7-red.svg)
+# dblp-excel-graph
+![python-version](https://img.shields.io/badge/python-3.7-red.svg)
+![version](https://img.shields.io/badge/version-1.2.0-green.svg)
 
 
 ### :green_apple:1 Decribe
 
-表格化dblp搜索结果
+表格化dblp搜索结果， 统计图生成， 词云图生成
 
-### :bookmark:2 Version
-  
-- Version 1.0
 
-### 介绍
+### dblp介绍
 
 dblp 计算机科学书目提供有关主要计算机科学期刊和会议记录的开放书目信息，dblp 最初于 1993 年在特里尔大学创建
 。为了方便查看 
@@ -41,35 +39,34 @@ dblp 计算机科学书目提供有关主要计算机科学期刊和会议记录
 
 :wrench:直观显示了所有搜索结果，每个字段代表的含义：
 
-authors:   作者
-
-title：论文标题
-
-venue：发表的刊物（WWW、AAAI等）
-
-type：刊物的类型（期刊、会议等）
-
-year：出版的年份
-
-access：是否开发获取
-
-ee：出版处原文
+|*字段|*描述|
+|----|----|
+|authors|  作者|
+|title|论文标题|
+|venue|发表的刊物（WWW、AAAI等）|
+|type|刊物的类型（期刊、会议等）|
+|year|出版的年份|
+|access|是否开发获取|
+|ee|出版处原文|
 
 
-:package:如何运行？
+### :package:如何运行？
+1. 生成论文列表
 ```python
 python getPaper.py
 ```
 
-### 根据搜索结果生成词云图
+![](https://raw.github.com/yaunsine/getDBLP/master/imgs/Snipaste_2022-12-19_21-06-14.png)
+
+
+2. 根据搜索结果生成词云图
 ```python
 python cloudword.py
 ```
 
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/cloudword.png)
 
-
-### 生成折线图
+3. 生成折线图
 ```python
 python showDataGraph.py
 ```
