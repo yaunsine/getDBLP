@@ -40,7 +40,7 @@ dblp 计算机科学书目提供有关主要计算机科学期刊和会议记录
 
 :wrench:直观显示了所有搜索结果，每个字段代表的含义：
 
-|*字段|*描述|
+|字段|描述|
 |----|----|
 |authors|  作者|
 |title|论文标题|
@@ -51,9 +51,15 @@ dblp 计算机科学书目提供有关主要计算机科学期刊和会议记录
 |ee|出版处原文|
 
 
+
 ### :package:如何运行？
+pip安装相关包文件
+```shell
+pip install -r requirements.txt -i http://pypi.douban.com/simple  --trusted-host pypi.douban.com
+```
+
 1. 生成论文列表
-```python
+```shell
 python getPaper.py
 ```
 
@@ -61,18 +67,18 @@ python getPaper.py
 
 
 2. 根据搜索结果生成词云图
-```python
+```shell
 python cloudword.py
 ```
 
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/cloudword.png)
 
 3. 生成折线图
-```python
+```shell
 python showDataGraph.py
 ```
 
 ![](https://raw.github.com/yaunsine/getDBLP/master/imgs/frequency_plot.png)
 
 
-整理的数据可以方便用于数据分析。
+** 整理的数据可以方便用于数据分析。
