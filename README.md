@@ -1,6 +1,7 @@
 # dblp-excel-graph
 ![python-version](https://img.shields.io/badge/python-3.7-red.svg)
 ![version](https://img.shields.io/badge/version-1.2.0-green.svg)
+![lisence](https://img.shields.io/badge/lisence-MIT%20Lisence-green.svg)
 
 
 ### :green_apple:1 Decribe
