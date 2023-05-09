@@ -1,8 +1,7 @@
-set files=%1
-set commitMsg=%2
+set commitMsg=%1
 if "%commitMsg%" == "" (
     set commitMsg = "update"
 )
-git add %files%
+git add .
 git commit -m "%commitMsg%"
 git push origin master
