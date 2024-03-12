@@ -42,8 +42,10 @@ url = f"https://dblp.org/search/publ/api?q={search_contents}&h={paper_count}&for
 if os.path.exists(diretory) is False:
     os.mkdir(diretory)
 
-proxies = {"http": "222.175.22.197:9091"}       # 运行不了改一下代理IP
-content = requests.get(url, proxies=proxies).text
+# proxies = {"http": "222.175.22.197:9091"}       # 运行不了改一下代理IP
+session = requests.Session()
+session.trust_env = False
+content = session.get(url).text
 content_json = json.loads(content)
 if int(content_json['result']['hits']['@total']) <= 0:
     raise Exception('请求无数据')
